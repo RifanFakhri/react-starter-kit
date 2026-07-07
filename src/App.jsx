@@ -1,11 +1,18 @@
+import { BrowserRouter } from "react-router-dom";
+import QueryClientProvider from "@/app/providers/QueryClientProvider";
+import { AuthProvider } from "@/app/providers/AuthProvider";
+import AppRouter from "@/app/router";
+
 function App() {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-slate-900">
-      <h1 className="text-5xl font-bold text-cyan-400">
-        Tailwind CSS Berhasil!
-      </h1>
-    </div>
-  )
+    <BrowserRouter>
+      <QueryClientProvider>
+        <AuthProvider>
+          <AppRouter />
+        </AuthProvider>
+      </QueryClientProvider>
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;
